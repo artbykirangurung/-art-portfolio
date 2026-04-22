@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main style={styles.page}>
-      
+
       {/* HERO */}
       <header style={styles.hero}>
         <h1 style={styles.title}>Kiran Gurung Art Studio</h1>
@@ -10,46 +10,32 @@ export default function Home() {
         </p>
       </header>
 
+      {/* SECTION EXAMPLE */}
       <Section title="Commission Works">
         <Grid>
           <Card title="Client Portrait" price="AUD 300" size="12x16 inch" />
           <Card title="Custom Portrait" price="AUD 350" size="14x18 inch" />
-          <Card title="Personal Commission" price="AUD 400" size="A3" />
         </Grid>
       </Section>
 
-      <Section title="Original Gouache Paintings">
+      <Section title="Original Paintings">
         <Grid>
           <Card title="Himalayan Light" price="AUD 250" size="A3" />
           <Card title="Quiet Street" price="AUD 220" size="A4" />
-          <Card title="Nepal Memory" price="AUD 280" size="A3" />
         </Grid>
       </Section>
 
-      <Section title="Calendars (Nepal × Australia)">
+      <Section title="Calendars">
         <Grid>
-          <Card title="Desk Calendar 2026" price="AUD 35" size="A5 Desk" stripe />
-          <Card title="Wall Calendar 2026" price="AUD 45" size="A3 Wall" stripe />
-        </Grid>
-      </Section>
-
-      <Section title="Handmade Bookmarks">
-        <Grid>
-          <Card title="Nature Set (3)" price="AUD 10" size="Handmade" stripe />
-          <Card title="Art Sketch Set" price="AUD 12" size="Handmade" stripe />
-        </Grid>
-      </Section>
-
-      <Section title="Oh My Tikuli – Earrings">
-        <Grid>
-          <Card title="Laliguras Earrings" price="AUD 25" size="Polymer Clay" stripe />
-          <Card title="Floral Collection" price="AUD 28" size="Lightweight" stripe />
+          <Card title="Desk Calendar 2026" price="AUD 35" size="A5" stripe />
+          <Card title="Wall Calendar 2026" price="AUD 45" size="A3" stripe />
         </Grid>
       </Section>
 
       <footer style={styles.footer}>
         © 2026 Kiran Gurung • Tikuli Handmade Studio
       </footer>
+
     </main>
   );
 }
@@ -72,6 +58,7 @@ function Grid({ children }: any) {
 function Card({ title, price, size, stripe }: any) {
   return (
     <div style={styles.card}>
+
       <div style={styles.imagePlaceholder}></div>
 
       <h3 style={styles.cardTitle}>{title}</h3>
@@ -83,6 +70,7 @@ function Card({ title, price, size, stripe }: any) {
           <button style={styles.button}>Buy Now</button>
         </a>
       )}
+
     </div>
   );
 }
