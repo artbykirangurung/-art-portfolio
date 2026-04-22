@@ -1,62 +1,54 @@
 export default function Home() {
   return (
-    <main style={{ fontFamily: "sans-serif", background: "#faf8f5", padding: "40px" }}>
+    <main style={styles.page}>
       
-      {/* HEADER */}
-      <section style={{ textAlign: "center", marginBottom: "60px" }}>
-        <h1 style={{ fontSize: "42px", marginBottom: "10px" }}>
-          Kiran Gurung Art Studio
-        </h1>
-        <p style={{ fontSize: "18px", color: "#666" }}>
+      {/* HERO */}
+      <header style={styles.hero}>
+        <h1 style={styles.title}>Kiran Gurung Art Studio</h1>
+        <p style={styles.subtitle}>
           Portraits • Gouache • Handmade • Tikuli Collection
         </p>
-      </section>
+      </header>
 
-      {/* COMMISSIONS */}
       <Section title="Commission Works">
         <Grid>
-          <Card title="Client Portrait 1" price="AUD 300" size="12x16 inch" />
-          <Card title="Client Portrait 2" price="AUD 350" size="14x18 inch" />
-          <Card title="Custom Painting" price="AUD 400" size="16x20 inch" />
+          <Card title="Client Portrait" price="AUD 300" size="12x16 inch" />
+          <Card title="Custom Portrait" price="AUD 350" size="14x18 inch" />
+          <Card title="Personal Commission" price="AUD 400" size="A3" />
         </Grid>
       </Section>
 
-      {/* ORIGINAL PAINTINGS */}
       <Section title="Original Gouache Paintings">
         <Grid>
-          <Card title="Himalayan Morning" price="AUD 250" size="A3" />
+          <Card title="Himalayan Light" price="AUD 250" size="A3" />
           <Card title="Quiet Street" price="AUD 220" size="A4" />
-          <Card title="Nepal Essence" price="AUD 280" size="A3" />
+          <Card title="Nepal Memory" price="AUD 280" size="A3" />
         </Grid>
       </Section>
 
-      {/* CALENDARS */}
-      <Section title="Calendars (Nepal × Australia Series)">
+      <Section title="Calendars (Nepal × Australia)">
         <Grid>
           <Card title="Desk Calendar 2026" price="AUD 35" size="A5 Desk" stripe />
           <Card title="Wall Calendar 2026" price="AUD 45" size="A3 Wall" stripe />
         </Grid>
       </Section>
 
-      {/* BOOKMARKS */}
       <Section title="Handmade Bookmarks">
         <Grid>
-          <Card title="Nature Set (3 pcs)" price="AUD 10" size="Handmade" stripe />
+          <Card title="Nature Set (3)" price="AUD 10" size="Handmade" stripe />
           <Card title="Art Sketch Set" price="AUD 12" size="Handmade" stripe />
         </Grid>
       </Section>
 
-      {/* EARRINGS */}
-      <Section title="Oh My Tikuli – Handmade Earrings">
+      <Section title="Oh My Tikuli – Earrings">
         <Grid>
-          <Card title="Laliguras Earrings" price="AUD 25" size="Lightweight" stripe />
-          <Card title="Floral Clay Earrings" price="AUD 28" size="Polymer Clay" stripe />
+          <Card title="Laliguras Earrings" price="AUD 25" size="Polymer Clay" stripe />
+          <Card title="Floral Collection" price="AUD 28" size="Lightweight" stripe />
         </Grid>
       </Section>
 
-      {/* FOOTER */}
-      <footer style={{ textAlign: "center", marginTop: "80px", color: "#888" }}>
-        © 2026 Kiran Gurung Art Studio | Tikuli Handmade
+      <footer style={styles.footer}>
+        © 2026 Kiran Gurung • Tikuli Handmade Studio
       </footer>
     </main>
   );
@@ -66,59 +58,120 @@ export default function Home() {
 
 function Section({ title, children }: any) {
   return (
-    <section style={{ marginBottom: "60px" }}>
-      <h2 style={{ fontSize: "26px", marginBottom: "20px" }}>{title}</h2>
+    <section style={styles.section}>
+      <h2 style={styles.sectionTitle}>{title}</h2>
       {children}
     </section>
   );
 }
 
 function Grid({ children }: any) {
-  return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-      gap: "20px"
-    }}>
-      {children}
-    </div>
-  );
+  return <div style={styles.grid}>{children}</div>;
 }
 
 function Card({ title, price, size, stripe }: any) {
   return (
-    <div style={{
-      background: "white",
-      padding: "15px",
-      borderRadius: "16px",
-      boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
-    }}>
-      <div style={{
-        height: "160px",
-        background: "#eee",
-        borderRadius: "12px",
-        marginBottom: "10px"
-      }} />
+    <div style={styles.card}>
+      <div style={styles.imagePlaceholder}></div>
 
-      <h3 style={{ marginBottom: "5px" }}>{title}</h3>
-      <p style={{ fontSize: "14px", color: "#666" }}>{size}</p>
-      <p style={{ fontWeight: "bold", marginTop: "5px" }}>{price}</p>
+      <h3 style={styles.cardTitle}>{title}</h3>
+      <p style={styles.cardText}>{size}</p>
+      <p style={styles.price}>{price}</p>
 
       {stripe && (
         <a href="YOUR_STRIPE_LINK" target="_blank">
-          <button style={{
-            marginTop: "10px",
-            padding: "8px 12px",
-            borderRadius: "8px",
-            border: "none",
-            background: "#111",
-            color: "white",
-            cursor: "pointer"
-          }}>
-            Buy Now
-          </button>
+          <button style={styles.button}>Buy Now</button>
         </a>
       )}
     </div>
   );
 }
+
+/* ---------- STYLES ---------- */
+
+const styles = {
+  page: {
+    fontFamily: "Arial",
+    background: "#faf7f2",
+    padding: "40px",
+    color: "#222",
+  },
+
+  hero: {
+    textAlign: "center" as const,
+    marginBottom: "60px",
+  },
+
+  title: {
+    fontSize: "40px",
+    marginBottom: "10px",
+    fontWeight: "600",
+  },
+
+  subtitle: {
+    fontSize: "16px",
+    color: "#666",
+  },
+
+  section: {
+    marginBottom: "60px",
+  },
+
+  sectionTitle: {
+    fontSize: "24px",
+    marginBottom: "20px",
+    borderBottom: "1px solid #ddd",
+    paddingBottom: "8px",
+  },
+
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+  },
+
+  card: {
+    background: "#fff",
+    borderRadius: "16px",
+    padding: "15px",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
+  },
+
+  imagePlaceholder: {
+    height: "160px",
+    background: "#eaeaea",
+    borderRadius: "12px",
+    marginBottom: "10px",
+  },
+
+  cardTitle: {
+    fontSize: "16px",
+    marginBottom: "5px",
+  },
+
+  cardText: {
+    fontSize: "13px",
+    color: "#666",
+  },
+
+  price: {
+    fontWeight: "bold",
+    marginTop: "5px",
+  },
+
+  button: {
+    marginTop: "10px",
+    padding: "8px 12px",
+    borderRadius: "8px",
+    border: "none",
+    background: "#111",
+    color: "#fff",
+    cursor: "pointer",
+  },
+
+  footer: {
+    textAlign: "center" as const,
+    marginTop: "80px",
+    color: "#888",
+  },
+};
