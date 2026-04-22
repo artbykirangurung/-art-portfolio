@@ -1,165 +1,174 @@
-export default function Home() {
-  return (
-    <main style={styles.page}>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kiran Gurung Art Studio</title>
 
-      {/* HERO */}
-      <header style={styles.hero}>
-        <h1 style={styles.title}>Kiran Gurung Art Studio</h1>
-        <p style={styles.subtitle}>
-          Portraits • Gouache • Handmade • Tikuli Collection
-        </p>
-      </header>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #faf7f2;
+      color: #222;
+    }
 
-      {/* SECTION EXAMPLE */}
-      <Section title="Commission Works">
-        <Grid>
-          <Card title="Client Portrait" price="AUD 300" size="12x16 inch" />
-          <Card title="Custom Portrait" price="AUD 350" size="14x18 inch" />
-        </Grid>
-      </Section>
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-      <Section title="Original Paintings">
-        <Grid>
-          <Card title="Himalayan Light" price="AUD 250" size="A3" />
-          <Card title="Quiet Street" price="AUD 220" size="A4" />
-        </Grid>
-      </Section>
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
 
-      <Section title="Calendars">
-        <Grid>
-          <Card title="Desk Calendar 2026" price="AUD 35" size="A5" stripe />
-          <Card title="Wall Calendar 2026" price="AUD 45" size="A3" stripe />
-        </Grid>
-      </Section>
+    p {
+      color: #666;
+    }
 
-      <footer style={styles.footer}>
-        © 2026 Kiran Gurung • Tikuli Handmade Studio
-      </footer>
+    section {
+      padding: 40px;
+    }
 
-    </main>
-  );
-}
+    h2 {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
 
-/* ---------- COMPONENTS ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-function Section({ title, children }: any) {
-  return (
-    <section style={styles.section}>
-      <h2 style={styles.sectionTitle}>{title}</h2>
-      {children}
-    </section>
-  );
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
 
-function Grid({ children }: any) {
-  return <div style={styles.grid}>{children}</div>;
-}
+    .image {
+      height: 160px;
+      background: #eaeaea;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
 
-function Card({ title, price, size, stripe }: any) {
-  return (
-    <div style={styles.card}>
+    .title {
+      font-size: 16px;
+      margin: 0;
+    }
 
-      <div style={styles.imagePlaceholder}></div>
+    .size {
+      font-size: 13px;
+      color: #666;
+    }
 
-      <h3 style={styles.cardTitle}>{title}</h3>
-      <p style={styles.cardText}>{size}</p>
-      <p style={styles.price}>{price}</p>
+    .price {
+      font-weight: bold;
+      margin-top: 5px;
+    }
 
-      {stripe && (
-        <a href="YOUR_STRIPE_LINK" target="_blank">
-          <button style={styles.button}>Buy Now</button>
-        </a>
-      )}
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      cursor: pointer;
+    }
 
+    footer {
+      text-align: center;
+      padding: 60px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Kiran Gurung Art Studio</h1>
+  <p>Portraits • Gouache • Handmade • Tikuli Collection</p>
+</header>
+
+<section>
+  <h2>Commission Works</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Client Portrait</p>
+      <p class="size">12x16 inch</p>
+      <p class="price">AUD 300</p>
     </div>
-  );
-}
 
-/* ---------- STYLES ---------- */
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Custom Portrait</p>
+      <p class="size">A3</p>
+      <p class="price">AUD 350</p>
+    </div>
 
-const styles = {
-  page: {
-    fontFamily: "Arial",
-    background: "#faf7f2",
-    padding: "40px",
-    color: "#222",
-  },
+  </div>
+</section>
 
-  hero: {
-    textAlign: "center" as const,
-    marginBottom: "60px",
-  },
+<section>
+  <h2>Original Paintings</h2>
+  <div class="grid">
 
-  title: {
-    fontSize: "40px",
-    marginBottom: "10px",
-    fontWeight: "600",
-  },
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Himalayan Light</p>
+      <p class="size">A3 Gouache</p>
+      <p class="price">AUD 250</p>
+    </div>
 
-  subtitle: {
-    fontSize: "16px",
-    color: "#666",
-  },
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Quiet Street</p>
+      <p class="size">A4</p>
+      <p class="price">AUD 220</p>
+    </div>
 
-  section: {
-    marginBottom: "60px",
-  },
+  </div>
+</section>
 
-  sectionTitle: {
-    fontSize: "24px",
-    marginBottom: "20px",
-    borderBottom: "1px solid #ddd",
-    paddingBottom: "8px",
-  },
+<section>
+  <h2>Calendars</h2>
+  <div class="grid">
 
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "20px",
-  },
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Desk Calendar 2026</p>
+      <p class="size">A5 Desk</p>
+      <p class="price">AUD 35</p>
+      <a href="YOUR_STRIPE_LINK">
+        <button>Buy Now</button>
+      </a>
+    </div>
 
-  card: {
-    background: "#fff",
-    borderRadius: "16px",
-    padding: "15px",
-    boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
-  },
+    <div class="card">
+      <div class="image"></div>
+      <p class="title">Wall Calendar 2026</p>
+      <p class="size">A3 Wall</p>
+      <p class="price">AUD 45</p>
+      <a href="YOUR_STRIPE_LINK">
+        <button>Buy Now</button>
+      </a>
+    </div>
 
-  imagePlaceholder: {
-    height: "160px",
-    background: "#eaeaea",
-    borderRadius: "12px",
-    marginBottom: "10px",
-  },
+  </div>
+</section>
 
-  cardTitle: {
-    fontSize: "16px",
-    marginBottom: "5px",
-  },
+<footer>
+  © 2026 Kiran Gurung • Tikuli Handmade Studio
+</footer>
 
-  cardText: {
-    fontSize: "13px",
-    color: "#666",
-  },
-
-  price: {
-    fontWeight: "bold",
-    marginTop: "5px",
-  },
-
-  button: {
-    marginTop: "10px",
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: "none",
-    background: "#111",
-    color: "#fff",
-    cursor: "pointer",
-  },
-
-  footer: {
-    textAlign: "center" as const,
-    marginTop: "80px",
-    color: "#888",
-  },
-};
+</body>
+</html>
