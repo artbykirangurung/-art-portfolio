@@ -1,43 +1,124 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Kiran Gurung Art</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      text-align: center;
-    }
-    header {
-      background: #111;
-      color: white;
-      padding: 20px;
-    }
-    img {
-      width: 300px;
-      margin: 10px;
-      border-radius: 10px;
-    }
-  </style>
-</head>
+export default function Home() {
+  return (
+    <main style={{ fontFamily: "sans-serif", background: "#faf8f5", padding: "40px" }}>
+      
+      {/* HEADER */}
+      <section style={{ textAlign: "center", marginBottom: "60px" }}>
+        <h1 style={{ fontSize: "42px", marginBottom: "10px" }}>
+          Kiran Gurung Art Studio
+        </h1>
+        <p style={{ fontSize: "18px", color: "#666" }}>
+          Portraits • Gouache • Handmade • Tikuli Collection
+        </p>
+      </section>
 
-<body>
+      {/* COMMISSIONS */}
+      <Section title="Commission Works">
+        <Grid>
+          <Card title="Client Portrait 1" price="AUD 300" size="12x16 inch" />
+          <Card title="Client Portrait 2" price="AUD 350" size="14x18 inch" />
+          <Card title="Custom Painting" price="AUD 400" size="16x20 inch" />
+        </Grid>
+      </Section>
 
-<header>
-  <h1>Kiran Gurung</h1>
-  <p>Portrait | Murals | Handmade Art</p>
-</header>
+      {/* ORIGINAL PAINTINGS */}
+      <Section title="Original Gouache Paintings">
+        <Grid>
+          <Card title="Himalayan Morning" price="AUD 250" size="A3" />
+          <Card title="Quiet Street" price="AUD 220" size="A4" />
+          <Card title="Nepal Essence" price="AUD 280" size="A3" />
+        </Grid>
+      </Section>
 
-<h2>My Work</h2>
+      {/* CALENDARS */}
+      <Section title="Calendars (Nepal × Australia Series)">
+        <Grid>
+          <Card title="Desk Calendar 2026" price="AUD 35" size="A5 Desk" stripe />
+          <Card title="Wall Calendar 2026" price="AUD 45" size="A3 Wall" stripe />
+        </Grid>
+      </Section>
 
-<img src="your-art1.jpg">
-<img src="your-art2.jpg">
-<img src="your-art3.jpg">
+      {/* BOOKMARKS */}
+      <Section title="Handmade Bookmarks">
+        <Grid>
+          <Card title="Nature Set (3 pcs)" price="AUD 10" size="Handmade" stripe />
+          <Card title="Art Sketch Set" price="AUD 12" size="Handmade" stripe />
+        </Grid>
+      </Section>
 
-<h2>Contact</h2>
-<p>Email: kgurung790@gmail.com</p>
+      {/* EARRINGS */}
+      <Section title="Oh My Tikuli – Handmade Earrings">
+        <Grid>
+          <Card title="Laliguras Earrings" price="AUD 25" size="Lightweight" stripe />
+          <Card title="Floral Clay Earrings" price="AUD 28" size="Polymer Clay" stripe />
+        </Grid>
+      </Section>
 
-</body>
-</html>
-<img src="/IMG_1568.jpeg" alt="My Artwork" />
-<img src="/images/my-art.jpg" alt="My Artwork" />
+      {/* FOOTER */}
+      <footer style={{ textAlign: "center", marginTop: "80px", color: "#888" }}>
+        © 2026 Kiran Gurung Art Studio | Tikuli Handmade
+      </footer>
+    </main>
+  );
+}
+
+/* ---------- COMPONENTS ---------- */
+
+function Section({ title, children }: any) {
+  return (
+    <section style={{ marginBottom: "60px" }}>
+      <h2 style={{ fontSize: "26px", marginBottom: "20px" }}>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function Grid({ children }: any) {
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+      gap: "20px"
+    }}>
+      {children}
+    </div>
+  );
+}
+
+function Card({ title, price, size, stripe }: any) {
+  return (
+    <div style={{
+      background: "white",
+      padding: "15px",
+      borderRadius: "16px",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
+    }}>
+      <div style={{
+        height: "160px",
+        background: "#eee",
+        borderRadius: "12px",
+        marginBottom: "10px"
+      }} />
+
+      <h3 style={{ marginBottom: "5px" }}>{title}</h3>
+      <p style={{ fontSize: "14px", color: "#666" }}>{size}</p>
+      <p style={{ fontWeight: "bold", marginTop: "5px" }}>{price}</p>
+
+      {stripe && (
+        <a href="YOUR_STRIPE_LINK" target="_blank">
+          <button style={{
+            marginTop: "10px",
+            padding: "8px 12px",
+            borderRadius: "8px",
+            border: "none",
+            background: "#111",
+            color: "white",
+            cursor: "pointer"
+          }}>
+            Buy Now
+          </button>
+        </a>
+      )}
+    </div>
+  );
+}
