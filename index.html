@@ -13,7 +13,7 @@ body {
   color: #1a1a1a;
 }
 
-/* HERO SLIDER */
+/* HERO */
 .hero {
   position: relative;
   height: 80vh;
@@ -25,18 +25,19 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: fade 12s infinite;
+  animation: fade 16s infinite;
 }
 
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
 
 @keyframes fade {
   0% { opacity: 0; }
   10% { opacity: 1; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
+  25% { opacity: 1; }
+  35% { opacity: 0; }
   100% { opacity: 0; }
 }
 
@@ -47,17 +48,11 @@ body {
   transform: translate(-50%,-50%);
   text-align: center;
   color: white;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero-text h1 {
   font-size: 60px;
   margin: 0;
-  letter-spacing: 2px;
-}
-
-.hero-text p {
-  font-size: 16px;
 }
 
 /* NAV */
@@ -71,7 +66,6 @@ nav a {
   margin: 0 10px;
   text-decoration: none;
   color: #333;
-  font-weight: 500;
 }
 
 /* SECTION */
@@ -80,8 +74,6 @@ section {
 }
 
 h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -97,8 +89,7 @@ h2 {
   background: white;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: 0.3s;
+  cursor: pointer;
 }
 
 .card img {
@@ -107,26 +98,20 @@ h2 {
   object-fit: cover;
 }
 
-.card:hover {
-  transform: scale(1.02);
-}
-
 .info {
   padding: 12px;
 }
 
 .price {
   font-weight: bold;
-  margin-top: 5px;
 }
 
 button {
-  margin-top: 8px;
-  padding: 8px 12px;
+  padding: 10px;
   border: none;
   background: #111;
   color: white;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
@@ -134,24 +119,43 @@ button {
 .signup {
   text-align: center;
   background: #fff;
-  padding: 70px 20px;
+  padding: 60px;
 }
 
-.signup input {
+/* FORM */
+.form-box {
+  max-width: 500px;
+  margin: auto;
+}
+
+input, select, textarea {
+  width: 100%;
   padding: 12px;
-  width: 250px;
-  border: 1px solid #ddd;
+  margin: 10px 0;
   border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-.signup button {
-  margin-left: 10px;
+/* MODAL */
+#imageModal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+#imageModal img {
+  max-width:90%;
+  max-height:90%;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 50px;
+  padding: 40px;
   color: #777;
 }
 </style>
@@ -159,7 +163,7 @@ footer {
 
 <body>
 
-<!-- HERO SLIDER -->
+<!-- HERO -->
 <div class="hero">
   <img class="slide" src="IMG_3468.jpeg">
   <img class="slide" src="IMG_3474.jpeg">
@@ -168,14 +172,14 @@ footer {
 
   <div class="hero-text">
     <h1>ART BY KIRAN GURUNG</h1>
-    <p>Portrait Paintings • Murals • Handmade • Tikuli Handmade</p>
+    <p>Portraits • Murals • Handmade</p>
   </div>
 </div>
 
 <!-- NAV -->
 <nav>
   <a href="#commission">Commission</a>
-  <a href="#portraits">Portraits</a>
+  <a href="#portraits">Paintings</a>
   <a href="#murals">Murals</a>
   <a href="#earrings">Earrings</a>
   <a href="#calendars">Calendars</a>
@@ -184,8 +188,6 @@ footer {
 <!-- SIGNUP -->
 <div class="signup">
   <h2>Join & Get 10% Off</h2>
-  <p>Exclusive artworks, offers & updates</p>
-
   <form action="https://artbykirangurung.us17.list-manage.com/subscribe/post?u=d2ca1c60f52ee6440596ada83&id=2f142ab8a2" method="post" target="_blank">
     <input type="email" name="EMAIL" placeholder="Enter your email" required>
     <button type="submit">Get Discount</button>
@@ -197,93 +199,58 @@ footer {
 <h2>Commission Gallery</h2>
 <div class="grid">
 
-<div class="card">
-<img src="IMG_3446.jpeg">
-<img src="IMG_3447.jpeg">
-<img src="IMG_3452.jpeg"> 
-<img src="IMG_3454.jpeg">  
-<div class="info">
-  Single Portrait
-  <div class="price">Commission Work</div>
-</div>
+<div class="card" onclick="openModal('IMG_3446.jpeg')">
+  <img src="IMG_3446.jpeg">
+  <div class="info">Single Portrait<div class="price">From AUD 300</div></div>
 </div>
 
-<div class="card">
-<img src="IMG_3449.jpeg">
-<img src="IMG_3450.jpeg">
-<img src="IMG_3451.jpeg">
-<img src="IMG_3463.jpeg">
-<div class="info">
-  Family of Two
-  <div class="price">Private Client</div>
-</div>
+<div class="card" onclick="openModal('IMG_3449.jpeg')">
+  <img src="IMG_3449.jpeg">
+  <div class="info">Family Portrait<div class="price">From AUD 500</div></div>
 </div>
 
-  <div class="card">
-<img src="IMG_3455.jpeg">
-<img src="IMG_3456.jpeg">
-<img src="IMG_3457.jpeg">
-<div class="info">
-  Family of Three
-  <div class="price">Commission Work</div>
 </div>
-</div>
-  
-<section id="commission-form" style="max-width:600px; margin:auto; text-align:center;">
+</section>
 
+<!-- COMMISSION FORM -->
+<section>
 <h2>Commission a Custom Artwork</h2>
-<p>Tell me your idea and I’ll send you a personalised quote.</p>
+<p style="text-align:center;">Limited slots available each month</p>
 
-<form action="mailto:your@email.com" method="post" enctype="text/plain">
+<div class="form-box">
+<form action="mailto:artbykirangurung@gmail.com" method="post" enctype="text/plain">
 
-<input type="text" name="name" placeholder="Your Name" required
-style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px;">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
 
-<input type="email" name="email" placeholder="Your Email" required
-style="width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px;">
-
-<select name="type" style="width:100%; padding:12px; margin:10px 0; border-radius:8px;">
+<select name="type">
   <option>Portrait</option>
   <option>Mural</option>
-  <option>Custom Artwork</option>
 </select>
 
-<select name="budget" style="width:100%; padding:12px; margin:10px 0; border-radius:8px;">
-  <option>Budget: Under $200</option>
-  <option>$200 – $500</option>
-  <option>$500 – $1000</option>
+<select name="budget">
+  <option>Under $200</option>
+  <option>$200–$500</option>
+  <option>$500–$1000</option>
   <option>$1000+</option>
 </select>
 
-<textarea name="details" placeholder="Describe your idea..."
-style="width:100%; padding:12px; margin:10px 0; border-radius:8px;"></textarea>
+<textarea name="details" placeholder="Describe your idea"></textarea>
 
-<button type="submit" style="padding:12px 20px; background:#111; color:#fff; border:none; border-radius:8px;">
-Request Quote
-</button>
+<button type="submit">Request Quote</button>
 
 </form>
-</section>
 </div>
 </section>
 
-<!-- Gouache Painting -->
-<section id="paintings">
+<!-- PAINTINGS -->
+<section id="portraits">
 <h2>Paintings</h2>
 <div class="grid">
 
-
-
-<div class="card">
+<div class="card" onclick="openModal('IMG_3469.jpeg')">
 <img src="IMG_3469.jpeg">
-<img src="IMG_3472.jpeg">  
-<img src="IMG_3475.jpeg">
-<img src="IMG_3473.jpeg">
-<div class="info">
-Gouache Painting
-<div class="price">AUD 200</div>
-<button>Buy</button>
-</div>
+<div class="info">Gouache Painting<div class="price">AUD 200</div></div>
 </div>
 
 </div>
@@ -296,11 +263,7 @@ Gouache Painting
 
 <div class="card">
 <img src="IMG_3467.jpeg">
-<div class="info">
-Wall Mural
-<div class="price">From AUD 1000</div>
-<button>Book</button>
-</div>
+<div class="info">Wall Mural<div class="price">From AUD 1000</div></div>
 </div>
 
 </div>
@@ -308,20 +271,12 @@ Wall Mural
 
 <!-- EARRINGS -->
 <section id="earrings">
-<h2>Oh My Tikuli Earrings</h2>
+<h2>Tikuli Earrings</h2>
 <div class="grid">
 
 <div class="card">
 <img src="IMG_2239.jpeg">
-<img src="IMG_2604.jpeg">  
-<img src="IMG_2607.jpeg">  
-<img src="IMG_2609.jpeg">
-<img src="IMG_2613.jpeg">
-<div class="info">
-Laliguras Earrings
-<div class="price">AUD 25</div>
-<button>Buy</button>
-</div>
+<div class="info">Laliguras Earrings<div class="price">AUD 25</div></div>
 </div>
 
 </div>
@@ -332,46 +287,33 @@ Laliguras Earrings
 <h2>Calendars</h2>
 <div class="grid">
 
-<!-- DESK CALENDAR -->
 <div class="card">
 <img src="IMG_1574.jpeg">
-<img src="IMG_1575.jpeg">  
-<img src="IMG_1573.jpeg">
-<img src="IMG_1572.jpeg">  
-<img src="IMG_1571.jpeg">
-<img src="IMG_1570.jpeg">
-<img src="IMG_1569.jpeg">
-<img src="IMG_1568.jpeg">  
-<div class="info">
-Desk Calendar 2026
-<div class="price">AUD 25</div>
-<button>Buy Now</button>
-</div>
+<div class="info">Desk Calendar<div class="price">AUD 25</div></div>
 </div>
 
-<!-- WALL CALENDAR -->
 <div class="card">
 <img src="IMG_1607.jpeg">
-<img src="IMG_1606.jpeg">
-<img src="IMG_1605.jpeg">
-<img src="IMG_1604.jpeg">
-<img src="IMG_1599.jpeg">
-<img src="IMG_1603.jpeg">
-<img src="IMG_1602.jpeg">
-<img src="IMG_1601.jpeg">
-<img src="IMG_1600.jpeg">
-<div class="info">
-Wall Calendar 2026
-<div class="price">AUD 35</div>
-<button>Buy Now</button>
-</div>
+<div class="info">Wall Calendar<div class="price">AUD 35</div></div>
 </div>
 
 </div>
 </section>
 
+<!-- MODAL -->
+<div id="imageModal" onclick="this.style.display='none'">
+  <img id="modalImg">
+</div>
+
+<script>
+function openModal(src){
+  document.getElementById("imageModal").style.display="flex";
+  document.getElementById("modalImg").src=src;
+}
+</script>
+
 <footer>
-© 2026 Art By Kiran Gurung • Handmade Studio
+© 2026 Art By Kiran Gurung
 </footer>
 
 </body>
