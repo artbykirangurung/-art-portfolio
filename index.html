@@ -68,7 +68,6 @@ h2 {
 
 /* SLIDER */
 .slider {
-  position: relative;
   overflow: hidden;
 }
 
@@ -84,22 +83,13 @@ h2 {
   object-fit: cover;
 }
 
-/* SLIDE ANIMATION (5 images support) */
+/* SLIDE ANIMATION */
 @keyframes slide {
-  0% { transform: translateX(0%); }
-  20% { transform: translateX(0%); }
-
-  25% { transform: translateX(-100%); }
-  40% { transform: translateX(-100%); }
-
-  45% { transform: translateX(-200%); }
-  60% { transform: translateX(-200%); }
-
-  65% { transform: translateX(-300%); }
-  80% { transform: translateX(-300%); }
-
-  85% { transform: translateX(-400%); }
-  100% { transform: translateX(-400%); }
+  0%,20% { transform: translateX(0%); }
+  25%,40% { transform: translateX(-100%); }
+  45%,60% { transform: translateX(-200%); }
+  65%,80% { transform: translateX(-300%); }
+  85%,100% { transform: translateX(-400%); }
 }
 
 /* INFO */
@@ -135,79 +125,184 @@ footer {
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
   <h1>ART BY KIRAN GURUNG</h1>
 </div>
 
+<!-- NAV -->
 <nav>
   <a href="#commission">Commission</a>
+  <a href="#paintings">Paintings</a>
+  <a href="#murals">Murals</a>
+  <a href="#earrings">Earrings</a>
+  <a href="#calendars">Calendars</a>
 </nav>
 
-<!-- COMMISSION SECTION -->
+<!-- COMMISSION -->
 <section id="commission">
 <h2>Commission Portraits</h2>
-
 <div class="grid">
 
-<!-- SINGLE PORTRAIT -->
 <div class="card">
-  <div class="slider">
-    <div class="slides">
-      <img src="IMG_3446.jpeg">
-      <img src="IMG_3447.jpeg">
-      <img src="IMG_3452.jpeg">
-      <img src="IMG_3454.jpeg">
-      <img src="IMG_3455.jpeg">
-    </div>
-  </div>
-  <div class="info">
-    <div>Single Portrait</div>
-    <div class="price">Custom Commission</div>
-    <button>Request</button>
-  </div>
+<div class="slider"><div class="slides">
+<img src="IMG_3446.jpeg">
+<img src="IMG_3447.jpeg">
+<img src="IMG_3452.jpeg">
+<img src="IMG_3454.jpeg">
+<img src="IMG_3455.jpeg">
+</div></div>
+<div class="info">
+Single Portrait
+<div class="price">Custom Commission</div>
+<button>Request</button>
+</div>
 </div>
 
-<!-- COUPLE / FAMILY OF 2 -->
 <div class="card">
-  <div class="slider">
-    <div class="slides">
-      <img src="IMG_3449.jpeg">
-      <img src="IMG_3450.jpeg">
-      <img src="IMG_3451.jpeg">
-      <img src="IMG_3463.jpeg">
-      <img src="IMG_3462.jpeg">
-    </div>
-  </div>
-  <div class="info">
-    <div>Couple / Family of 2</div>
-    <div class="price">Custom Commission</div>
-    <button>Request</button>
-  </div>
+<div class="slider"><div class="slides">
+<img src="IMG_3449.jpeg">
+<img src="IMG_3450.jpeg">
+<img src="IMG_3451.jpeg">
+<img src="IMG_3463.jpeg">
+<img src="IMG_3462.jpeg">
+</div></div>
+<div class="info">
+Couple / Family of 2
+<div class="price">Custom Commission</div>
+<button>Request</button>
+</div>
 </div>
 
-<!-- FAMILY OF 3 -->
 <div class="card">
-  <div class="slider">
-    <div class="slides">
-      <img src="IMG_3455.jpeg">
-      <img src="IMG_3456.jpeg">
-      <img src="IMG_3457.jpeg">
-      <img src="IMG_3458.jpeg">
-      <img src="IMG_3459.jpeg">
-    </div>
-  </div>
-  <div class="info">
-    <div>Family of 3</div>
-    <div class="price">Custom Commission</div>
-    <button>Request</button>
-  </div>
+<div class="slider"><div class="slides">
+<img src="IMG_3455.jpeg">
+<img src="IMG_3456.jpeg">
+<img src="IMG_3457.jpeg">
+<img src="IMG_3458.jpeg">
+<img src="IMG_3459.jpeg">
+</div></div>
+<div class="info">
+Family of 3
+<div class="price">Custom Commission</div>
+<button>Request</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- PAINTINGS -->
+<section id="paintings">
+<h2>Gouache Paintings</h2>
+<div class="grid">
+
+<div class="card">
+<div class="slider"><div class="slides">
+<img src="IMG_3469.jpeg">
+<img src="IMG_3472.jpeg">
+<img src="IMG_3475.jpeg">
+<img src="IMG_3473.jpeg">
+<img src="IMG_3474.jpeg">
+</div></div>
+<div class="info">
+Gouache Painting
+<div class="price">AUD 199</div>
+<button>Buy</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MURALS -->
+<section id="murals">
+<h2>Murals</h2>
+<div class="grid">
+
+<div class="card">
+<div class="slider"><div class="slides">
+<img src="IMG_3467.jpeg">
+<img src="IMG_3476.jpeg">
+<img src="IMG_3477.jpeg">
+<img src="IMG_3478.jpeg">
+<img src="IMG_3479.jpeg">
+</div></div>
+<div class="info">
+Wall Mural
+<div class="price">From AUD 1000</div>
+<button>Book</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- EARRINGS -->
+<section id="earrings">
+<h2>Oh My Tikuli Earrings</h2>
+<div class="grid">
+
+<div class="card">
+<div class="slider"><div class="slides">
+<img src="IMG_2239.jpeg">
+<img src="IMG_2604.jpeg">
+<img src="IMG_2607.jpeg">
+<img src="IMG_2609.jpeg">
+<img src="IMG_2613.jpeg">
+</div></div>
+<div class="info">
+Laliguras Earrings
+<div class="price">AUD 25</div>
+<button>Buy</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CALENDARS -->
+<section id="calendars">
+<h2>Calendars</h2>
+<div class="grid">
+
+<!-- DESK -->
+<div class="card">
+<div class="slider"><div class="slides">
+<img src="IMG_1574.jpeg">
+<img src="IMG_1575.jpeg">
+<img src="IMG_1573.jpeg">
+<img src="IMG_1572.jpeg">
+<img src="IMG_1571.jpeg">
+</div></div>
+<div class="info">
+Desk Calendar 2026
+<div class="price">AUD 25</div>
+<button>Buy</button>
+</div>
+</div>
+
+<!-- WALL -->
+<div class="card">
+<div class="slider"><div class="slides">
+<img src="IMG_1607.jpeg">
+<img src="IMG_1606.jpeg">
+<img src="IMG_1605.jpeg">
+<img src="IMG_1604.jpeg">
+<img src="IMG_1603.jpeg">
+</div></div>
+<div class="info">
+Wall Calendar 2026
+<div class="price">AUD 35</div>
+<button>Buy</button>
+</div>
 </div>
 
 </div>
 </section>
 
 <footer>
-© 2026 Art By Kiran Gurung
+© 2026 Art By Kiran Gurung • Handmade Studio
 </footer>
 
 </body>
