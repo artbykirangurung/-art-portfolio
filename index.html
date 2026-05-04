@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Art By Kiran Gurung</title>
+<title>Art by Kiran Gurung</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,29 +15,28 @@ body{
 
 /* HERO */
 .hero{
-  padding:80px 20px;
+  height:85vh;
+  background:url("IMG_3446.jpeg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  background:#111;
   color:white;
 }
 
+.hero-box{
+  background:rgba(0,0,0,0.4);
+  padding:30px;
+  border-radius:12px;
+}
+
 .hero h1{
-  font-size:55px;
+  font-size:50px;
   margin:0;
 }
 
-/* NAV */
-nav{
-  text-align:center;
-  padding:15px;
-  background:white;
-}
-
-nav a{
-  margin:10px;
-  text-decoration:none;
-  color:#333;
-  font-weight:bold;
+.hero p{
+  margin-top:10px;
 }
 
 /* SECTION */
@@ -47,13 +46,13 @@ section{
 
 h2{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
 
@@ -62,51 +61,28 @@ h2{
   background:white;
   border-radius:12px;
   overflow:hidden;
+  text-decoration:none;
+  color:black;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
-/* IMAGES */
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* IMAGE */
 .card img{
   width:100%;
   height:220px;
   object-fit:cover;
-  cursor:pointer;
 }
 
 /* INFO */
 .info{
-  padding:12px;
-}
-
-.price{
+  padding:15px;
+  text-align:center;
   font-weight:bold;
-}
-
-/* BUTTON */
-button{
-  width:100%;
-  padding:10px;
-  background:#111;
-  color:white;
-  border:none;
-  cursor:pointer;
-}
-
-/* FORM */
-.form-box{
-  max-width:600px;
-  margin:auto;
-  background:white;
-  padding:20px;
-  border-radius:12px;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:8px;
 }
 </style>
 </head>
@@ -115,167 +91,45 @@ input,select,textarea{
 
 <!-- HERO -->
 <div class="hero">
-  <h1>ART BY KIRAN GURUNG</h1>
-  <p>Portraits • Murals • Handmade • Tikuli Studio</p>
+  <div class="hero-box">
+    <h1>ART BY KIRAN GURUNG</h1>
+    <p>Portraits • Murals • Digital Art • Online Classes</p>
+  </div>
 </div>
 
-<!-- NAV -->
-<nav>
-  <a href="#commission">Commission</a>
-  <a href="#earrings">Earrings</a>
-  <a href="#calendars">Calendars</a>
-</nav>
-
-<!-- JOIN 10% DISCOUNT -->
-<section style="text-align:center; background:white;">
-  <h2>Join & Get 10% Off</h2>
-  <p>Exclusive artworks & offers</p>
-
-  <form action="https://artbykirangurung.us17.list-manage.com/subscribe/post?u=d2ca1c60f52ee6440596ada83&id=2f142ab8a2"
-        method="post" target="_blank">
-
-    <input type="email" name="EMAIL" placeholder="Enter your email" required>
-    <button type="submit">Get 10% Discount</button>
-
-  </form>
-</section>
-
-<!-- COMMISSION -->
-<section id="commission">
-<h2>Commission Portraits</h2>
-
-<div class="grid">
-
-<!-- SINGLE PORTRAIT -->
-<div class="card">
-<img src="IMG_3446.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3447.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3452.jpeg" onclick="openImg(this.src)">
-<a href="https://buy.stripe.com/7sY7sL8CgfRj7nq5SC9MY01" target="_blank">
-<button>Book Single Portrait (40×50cm) - $350</button>
-</a>  
-<div class="info">
-Single Portrait
-<div class="price">Custom Commission</div>
-</div>
-</div>
-
-<!-- COUPLE -->
-<div class="card">
-<img src="IMG_3449.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3450.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3451.jpeg" onclick="openImg(this.src)">
-<a href="https://buy.stripe.com/14AbJ14m034xePS80K9MY02" target="_blank">
-<button>Book Couple / Family of 2 Portrait (50x60cm) - $650</button>
-</a>
-<div class="info">
-Couple / Family of 2
-<div class="price">Custom Commission</div>
-</div>
-</div>
-
-<!-- FAMILY OF 3 -->
-<div class="card">
-<img src="IMG_3455.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3456.jpeg" onclick="openImg(this.src)">
-<img src="IMG_3457.jpeg" onclick="openImg(this.src)">
-<a href="https://buy.stripe.com/00w3cv4m020t37abcW9MY03" target="_blank">
-<button>Book Family of 3 Portrait (50x60cm) - $850</button>
-</a>
-<div class="price">Custom Commission</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- COMMISSION FORM -->
+<!-- CATEGORIES -->
 <section>
-<h2>Commission Query</h2>
-
-<div class="form-box">
-<form action="mailto:artbykirangurung@gmail.com" method="post" enctype="text/plain">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-
-<select name="type">
-  <option>Single Portrait</option>
-  <option>Couple / Family of 2</option>
-  <option>Family of 3</option>
-</select>
-
-<select name="budget">
-  <option>Under $200</option>
-  <option>$200 – $500</option>
-  <option>$500 – $1000</option>
-  <option>$1000+</option>
-</select>
-
-<textarea name="message" placeholder="Describe your idea"></textarea>
-
-<button type="submit">Request Quote</button>
-
-</form>
-</div>
-</section>
-
-<!-- EARRINGS -->
-<section id="earrings">
-<h2>Earrings (Oh My Tikuli)</h2>
+<h2>Explore My Work</h2>
 
 <div class="grid">
 
-<div class="card">
-<img src="IMG_2239.jpeg" onclick="openImg(this.src)">
-<img src="IMG_2604.jpeg" onclick="openImg(this.src)">
-<img src="IMG_2607.jpeg" onclick="openImg(this.src)">
-<div class="info">
-Laliguras Earrings
-<div class="price">AUD 25</div>
-</div>
-</div>
+<a href="portraits.html" class="card">
+<img src="IMG_3446.jpeg">
+<div class="info">Portraits</div>
+</a>
+
+<a href="murals.html" class="card">
+<img src="IMG_1574.jpeg">
+<div class="info">Murals</div>
+</a>
+
+<a href="digital.html" class="card">
+<img src="IMG_1607.jpeg">
+<div class="info">Digital Art</div>
+</a>
+
+<a href="calendars.html" class="card">
+<img src="IMG_1573.jpeg">
+<div class="info">Calendars</div>
+</a>
+
+<a href="classes.html" class="card">
+<img src="IMG_3452.jpeg">
+<div class="info">Online Classes</div>
+</a>
 
 </div>
 </section>
-
-<!-- CALENDARS -->
-<section id="calendars">
-<h2>Calendars</h2>
-
-<div class="grid">
-
-<!-- DESK -->
-<div class="card">
-<img src="IMG_1574.jpeg" onclick="openImg(this.src)">
-<img src="IMG_1575.jpeg" onclick="openImg(this.src)">
-<img src="IMG_1573.jpeg" onclick="openImg(this.src)">
-<div class="info">
-Desk Calendar
-<div class="price">AUD 25</div>
-</div>
-</div>
-
-<!-- WALL -->
-<div class="card">
-<img src="IMG_1607.jpeg" onclick="openImg(this.src)">
-<img src="IMG_1606.jpeg" onclick="openImg(this.src)">
-<img src="IMG_1605.jpeg" onclick="openImg(this.src)">
-<div class="info">
-Wall Calendar
-<div class="price">AUD 35</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- SCRIPT -->
-<script>
-function openImg(src){
-  window.open(src, "_blank");
-}
-</script>
 
 </body>
 </html>
